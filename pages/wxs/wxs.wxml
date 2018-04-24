@@ -1,0 +1,8 @@
+<!--引入文件时，最后的 / 号绝对不能遗忘  -->
+<wxs src="comm.wxs" module="comm"/>
+<view>{{comm.msg}}</view>
+<view>{{comm.bar(comm.FOO)}}</view>
+
+<!--wxs文件引入wxs文件  -->
+<wxs src="tools.wxs" module="tools"/>
+

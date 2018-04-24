@@ -1,0 +1,67 @@
+//  引入wxs文件
+
+var tools =  require("./comm.wxs");
+//运算
+var a = 10, b = 20;
+console.log(tools.FOO)
+console.log(tools.bar('tools.wxs'))
+console.log(tools.msg)
+// 自增运算
+console.log(10 === a++);
+console.log(12 === ++a);
+// 自减运算
+console.log(12 === a--);
+console.log(10 === --a);
+// 正值运算
+console.log(10 === +a);
+// 负值运算
+console.log(0 - 10 === -a);
+// 否运算
+console.log(-11 === ~a);
+// 取反运算
+console.log(false === !a);
+// delete 运算
+console.log(true === delete a.fake);
+// void 运算
+console.log(undefined === void a);
+// typeof 运算
+console.log("number" === typeof a);
+
+var exp = 10;
+
+switch ( exp ) {
+case "10":
+  console.log("string 10");
+  break;
+case 10:
+  console.log("number 10");
+  break;
+case exp:
+  console.log("var exp");
+  break;
+default:
+  console.log("default");
+}
+
+var exp = 10;
+
+switch (exp) {
+  case "10":
+    console.log("string 10");
+    break;
+  case 10:
+    console.log("number 10");
+    break;
+  case exp:
+    console.log("var exp");
+    break;
+  default:
+    console.log("default");
+}
+
+
+
+for (var i = 0; i < 3; ++i) {
+  console.log(i);
+  if (i >= 1) break;
+}

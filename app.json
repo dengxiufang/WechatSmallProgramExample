@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/reference/reference",    
+    "pages/wxs/wxs",
+    "pages/reference/reference",
     "pages/event/event",
     "pages/template/template",
     "pages/databind/databind",
