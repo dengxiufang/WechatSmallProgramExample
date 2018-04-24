@@ -1,4 +1,57 @@
 <!--pages/event/event.wxml-->
 <!--事件  -->
 <view id="tapTest" data-hi="WeChat" bindtap='tapName'>Click me</view>
-<!--冒泡事件  -->
+<!--冒泡事件: 当一个组件上的事件被触发后，该事件会向父节点传递  -->
+<!--touchstart | 手指触摸动作开始  -->
+<!--touchmove | 手指触摸后移动  -->
+<!--touchcancel | 手指触摸动作被打断，如来电提醒、弹窗  -->
+<!--touchend | 手指触摸动作结束  -->
+<!--tap 手指触摸动作结束  -->
+<!--longpress | 手指触摸后，超过350ms再离开,如果指定了事件回调函数并触发了这个事件，tap事件将不被触发  -->
+<!--longtap 手指触摸后，超过350ms再离开(推荐使用longpress事件代替) -->
+<!--transitionend 会在 WXSS trainsition 或 wx.createAnimation 动画结束后触发  -->
+<!--animationstart 会在一个 WXSS animation 动画开始时触发  -->
+<!--animationiteration 会在一个 WXSS animation 一次迭代结束时触发  -->
+<!--animationend 会在一个 WXSS animation 动画完成时触发  -->
+<!--touchforcechange 在支持 3D Touch 的 iPhone 设备,重按时会触发  -->
+<!--其余事件都为非冒泡事件  -->
+
+
+<!--事件绑定和冒泡  -->
+<!--bind 事件不会阻止冒泡事件向上冒泡，catch 事件绑定可以阻止冒泡事件向上冒泡  -->
+<!--如在下边这个例子中，点击 inner view 会先后调用handleTap3和handleTap2(因为tap事件会冒泡到 middle view，而 middle view 阻止了 tap 事件冒泡，不再向父节点传递)，点击 middle view 会触发handleTap2，点击 outer view 会触发handleTap1。  -->
+<view id="outer" bindtap="handleTap1">
+  outer view
+  <view id="middle" catchtap="handleTap2">
+    middle view
+    <view id="inner" bindtap="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+<view>============================</view>
+<!--事件的捕获阶段  -->
+<!--事件的顺序冒泡相反  -->
+<!--点击inner view 会先后调用 handleTap2、handleTap4、handleTap3、handleTap1  -->
+<view id="outer" bind:touchstart="handleTap1" capture-bind:touchstart="handleTap2">
+  outer view
+  <view id="inner" bind:touchstart="handleTap3" capture-bind:touchstart="handleTap4">
+    inner view
+  </view>
+</view>
+<view>======================</view>
+<!--capture-catch 将会中断捕获阶段和取消冒泡阶段-->
+<!--如果将上面代码中的第一个capture-bind改为capture-catch，将只触发handleTap2。  -->
+<view id="outer" bind:touchstart="handleTap1" capture-catch:touchstart="handleTap2">
+  outer view
+  <view id="inner" bind:touchstart="handleTap3" capture-bind:touchstart="handleTap4">
+    inner view
+  </view>
+</view>
+
+<view>=====================</view>
+<!--dataset  -->
+<!--data-alpha-beta 会转化为驼峰写法  -->
+<!--data-alphaBeta  会转化为小写  -->
+
+<view data-alpha-beta="1" data-alphaBeta="2" bindtap="bindViewTap">DataSet Test</view>
