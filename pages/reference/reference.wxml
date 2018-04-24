@@ -1,0 +1,18 @@
+<!--pages/reference/reference.wxml-->
+<!--引用  -->
+<!--WXML 提供两种文件引用方式 import 和 include  -->
+
+<!--import  -->
+<import src="../template/template.wxml" />
+<template is="msgItem" data="{{...item}}"></template>
+
+<!--import 的作用域  -->
+<!--只会import目标文件中定义的 template，而不会 import 目标文件 import 的 template  -->
+
+
+<!--include  -->
+<!--将目标文件除了 <template/> <wxs/> 外的整个代码引入  -->
+
+<include src="header.wxml"/>
+<view>body</view>
+<include src="footer.wxml"/>
