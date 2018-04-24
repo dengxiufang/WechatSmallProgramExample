@@ -1,0 +1,48 @@
+<import src="../template/template.wxml"/>
+
+<!--简单绑定
+  数据绑定使用 Mustache 语法(双大括号)将变量包起来,可以作用于:
+  -->
+<!-- 1.内容  -->
+<view>{{message}}</view>
+
+<!--2.组件属性(需要在双引号之内)  -->
+<view id="item-{{id}}"></view>
+
+<!--3.控制属性(需要在双引号之内) -->
+<view wx:if="{{condition}}">wx:if</view>
+
+<!--4.关键字(需要在双引号之内) -->
+<!--特别注意: 不要直接写 checked="false",其计算结果是一个字符串,转成boolean 类型后代表真值 -->
+<checkbox checked="{{true}}"></checkbox>
+
+<!--5.运算 -->
+<!--三元运算  -->
+<view hidden="{{flag ? true:false}}">Hidden</view>
+<!--算数运算  -->
+<view>{{a+b}}+{{c}}+d</view>
+<!--逻辑判断  -->
+<view wx:if="{{length>5}}">length大于5</view>
+<!--字符串运算 -->
+<view>{{"hello" + name}}</view>
+<!--数据路径运算  -->
+<view>{{object.key}}{{array[0]}}</view>
+
+<!--6.组合  -->
+<!--数组  -->
+<view wx:for="{{[zero,1,2,3,4]}}">{{item}}</view>
+<!--对象 -->
+<template name="objectCombine">
+  for:{{for}} , bar:{{bar}}
+</template>
+<template is="objectCombine" data="{{for:for,bar:bar}}"></template>
+<!--扩展运算符展开  -->
+<template is="objectCombine" data="{{...obj1}}"></template>
+<!--如果对象的 key 和 value 相同，也可以间接地表达 -->
+<template is="objectCombine" data="{{for,bar}}"></template>
+
+ <!--注意 : 花括号和引号之间如果有空格，将最终被解析成为字符串-->
+ <view wx:for="{{[1,2,3]}} ">{{item}}</view>
+
+<template is="msgItem" data="{{...item}}">
+</template>

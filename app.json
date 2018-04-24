@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/event/event",
+    "pages/template/template",
+    "pages/databind/databind",
+    "pages/conditionrender/conditionrender",
+    "pages/listrender/listrender",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

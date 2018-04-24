@@ -1,0 +1,4 @@
+<!--pages/event/event.wxml-->
+<!--事件  -->
+<view id="tapTest" data-hi="WeChat" bindtap='tapName'>Click me</view>
+<!--冒泡事件  -->
